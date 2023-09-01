@@ -1,0 +1,245 @@
+/* Estilos generales */
+body {
+  background-color: #1c1c1c;
+  color: #ffffff;
+}
+
+h1,
+h2 {
+  font-family: "Inquisitor", monospace;
+  flex: auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 80px;
+  letter-spacing: 5px;
+}
+
+h2 {
+  font-size: 60px;
+  letter-spacing: 3px;
+}
+
+header {
+  background-color: #121212;
+  padding: 20px;
+  text-align: center;
+}
+
+#warhammer_logo {
+  max-width: 30%;
+}
+
+#imperium_logo {
+  max-width: 50px;
+}
+
+#welcome_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+/* Estilos para el contenedor de la tabla */
+#welcome_table {
+  font-family: cursive;
+}
+
+#war_image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilos para centrar el contenido de las celdas */
+#text_section,
+#image_section {
+  width: 50%; /* Ancho igual para ambas celdas */
+}
+
+#author {
+  font-size: 50px;
+}
+
+#character-form,
+#character-list,
+#character-details {
+  margin: 20px;
+  padding: 20px;
+  background-color: #333333;
+  border-radius: 10px;
+  font-family: "Inquisitor", monospace;
+  letter-spacing: 1px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.list-container {
+  text-align: center;
+  display: flex; /* Utilizar flexbox para disposición horizontal */
+  justify-content: center; /* Centrar los elementos horizontalmente */
+  flex-wrap: wrap; /* Asegurarse de que los elementos se envuelvan a la siguiente línea */
+}
+
+/* Field Styles*/
+#name,
+#chapter,
+#weapon,
+#new-name,
+#new-chapter,
+#new-weapon {
+  font-size: 30px;
+  font-family: "Inquisitor", monospace;
+  letter-spacing: 1px;
+}
+
+/* Estilos específicos */
+#characters {
+  list-style: none;
+  padding: 0;
+  display: flex; /* Utilizamos flexbox para la disposición horizontal */
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+#characters li {
+  margin-right: 10px; /* Agrega un margen derecho para separar los elementos */
+  cursor: pointer;
+  align-items: center; /* Centra verticalmente los elementos */
+  margin-left: 5px; /* Añade un espacio entre el texto y el ícono */
+  text-align: center;
+}
+
+.button,
+#update-button,
+#edit-button,
+#delete-button {
+  font-family: "Inquisitor", monospace;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+#edit-button,
+#delete-button {
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: black;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: grey;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal-message {
+  font-family: "Inquisitor", monospace;
+  font-size: 50px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+#motivational,
+#author {
+  font-family: "Inquisitor", monospace;
+  letter-spacing: 1px;
+}
+
+#motivational {
+  font-size: 60px;
+  font-style: italic;
+  padding: 10px;
+}
+
+.form-container,
+.list-container,
+.details-container,
+.edit-container {
+  text-align: center; /* Alinear el contenido a la izquierda */
+  margin-top: 20px; /* Espacio arriba del formulario */
+  margin-bottom: 70px;
+}
+
+.form-container label,
+.form-container button,
+.edit-container label,
+.edit-container button {
+  margin-left: 30px;
+}
+
+#delete-all-button {
+  margin-bottom: 70px;
+}
+
+#characters {
+  list-style: none;
+  padding: 0;
+  margin: 10px; /* Espacio entre los elementos de la lista */
+}
+
+@font-face {
+  font-family: "Inquisitor"; /* El nombre que quieras darle a la fuente */
+  src: url("fonts/Inquisitor.otf") format("truetype"); /* Ruta relativa a la carpeta de fuentes */
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1280px;
+  max-height: 720px;
+  margin: 0 auto; /* Centrar horizontalmente */
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Aspect ratio 16:9 (9 / 16 = 0.5625) */
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
