@@ -79,8 +79,8 @@ function showDetails(index) {
             <h3>${character.name}</h3>
             <p>Chapter: ${character.chapter}</p>
             <p>Weapon: ${character.weapon}</p>
-            <button id="edit-button">Repair</button>
-            <button id="delete-button">Destroy!</button>
+            <button id="edit-button">Editar</button>
+            <button id="delete-button">Eliminar!</button>
     </div>
     `;
 
@@ -120,7 +120,7 @@ function editCharacter(index) {
             <option ${character.weapon === "Missile Launcher" ? "selected" : ""}>Missile Launcher</option>
             <option ${character.weapon === "Flamer" ? "selected" : ""}>Flamer</option>
         </select>
-        <button id="update-button">Repair</button>
+        <button id="update-button">Actualizar</button>
         </div>
     `;
 

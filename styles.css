@@ -45,6 +45,9 @@ header {
 /* Estilos para el contenedor de la tabla */
 #welcome_table {
   font-family: cursive;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
 }
 
 #war_image {
@@ -55,12 +58,11 @@ header {
 /* Estilos para centrar el contenido de las celdas */
 #text_section,
 #image_section {
-  width: 50%; /* Ancho igual para ambas celdas */
+  width: 90%;
+  z-index: 1;
+  position: relative;  
 }
 
-#author {
-  font-size: 50px;
-}
 
 #character-form,
 #character-list,
@@ -77,9 +79,12 @@ header {
 
 .list-container {
   text-align: center;
-  display: flex; /* Utilizar flexbox para disposición horizontal */
-  justify-content: center; /* Centrar los elementos horizontalmente */
-  flex-wrap: wrap; /* Asegurarse de que los elementos se envuelvan a la siguiente línea */
+  display: flex;
+  /* Utilizar flexbox para disposición horizontal */
+  justify-content: center;
+  /* Centrar los elementos horizontalmente */
+  flex-wrap: wrap;
+  /* Asegurarse de que los elementos se envuelvan a la siguiente línea */
 }
 
 /* Field Styles*/
@@ -98,16 +103,20 @@ header {
 #characters {
   list-style: none;
   padding: 0;
-  display: flex; /* Utilizamos flexbox para la disposición horizontal */
+  display: flex;
+  /* Utilizamos flexbox para la disposición horizontal */
   flex-wrap: wrap;
   text-align: center;
 }
 
 #characters li {
-  margin-right: 10px; /* Agrega un margen derecho para separar los elementos */
+  margin-right: 10px;
+  /* Agrega un margen derecho para separar los elementos */
   cursor: pointer;
-  align-items: center; /* Centra verticalmente los elementos */
-  margin-left: 5px; /* Añade un espacio entre el texto y el ícono */
+  align-items: center;
+  /* Centra verticalmente los elementos */
+  margin-left: 5px;
+  /* Añade un espacio entre el texto y el ícono */
   text-align: center;
 }
 
@@ -173,23 +182,36 @@ header {
 }
 
 #motivational,
-#author {
+
+
+#motivational {
+  width: 80%;
+  font-size: 3.8rem;
+  font-style: italic;
+  padding: 10px;
+  position: absolute;
+  z-index: 3;
   font-family: "Inquisitor", monospace;
   letter-spacing: 1px;
 }
 
-#motivational {
-  font-size: 60px;
-  font-style: italic;
-  padding: 10px;
+.blackimg {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.604);
+  position: absolute;
+  z-index: 2;
 }
+
+
 
 .form-container,
 .list-container,
 .details-container,
 .edit-container {
-  text-align: center; /* Alinear el contenido a la izquierda */
-  margin-top: 20px; /* Espacio arriba del formulario */
+  text-align: center;
+  /* Alinear el contenido a la izquierda */
+  margin-top: 20px;
+  /* Espacio arriba del formulario */
   margin-bottom: 70px;
 }
 
@@ -207,12 +229,13 @@ header {
 #characters {
   list-style: none;
   padding: 0;
-  margin: 10px; /* Espacio entre los elementos de la lista */
+  margin: 10px;
+  /* Espacio entre los elementos de la lista */
 }
 
 @font-face {
-  font-family: "Inquisitor"; /* El nombre que quieras darle a la fuente */
-  src: url("fonts/Inquisitor.otf") format("truetype"); /* Ruta relativa a la carpeta de fuentes */
+  font-family: "Inquisitor";
+  src: url("fonts/Inquisitor.otf") format("truetype");
 }
 
 .video-container {
@@ -221,13 +244,14 @@ header {
   align-items: center;
   max-width: 1280px;
   max-height: 720px;
-  margin: 0 auto; /* Centrar horizontalmente */
+  margin: 0 auto;
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* Aspect ratio 16:9 (9 / 16 = 0.5625) */
+  padding-bottom: 56.25%;
+  /* Aspect ratio 16:9 (9 / 16 = 0.5625) */
 }
 
 iframe {
@@ -242,4 +266,118 @@ iframe {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 1500px) {
+  body {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  h2 {
+    font-size: 48px;
+  }
+
+  #welcome_section {
+    height: auto;
+  }
+
+
+  .form-container,
+  .list-container,
+  .details-container,
+  .edit-container {
+    margin-top: 15px;
+    margin-bottom: 50px;
+  }
+
+  #character-form,
+  #character-list,
+  #character-details {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 1465px) {
+  #motivational{
+    font-size: 3.4rem;
+  }
+}
+
+@media screen and (max-width: 1360px) {
+  #motivational{
+    font-size: 3.3rem;
+  }
+}
+
+@media screen and (max-width: 1260px) {
+  #motivational{
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  #motivational{
+    font-size: 2.8rem;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  #motivational{
+    font-size: 2.6rem;
+  }
+}
+
+@media screen and (max-width: 1010px) {
+  #motivational{
+    font-size: 2.4rem;
+  }
+}
+@media screen and (max-width: 968px) {
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  #welcome_section {
+    height: auto;
+    flex-direction: column;
+  }
+
+  #motivational{
+    font-size: 2.2rem;
+  }
+
+  #text_section,
+  #image_section {
+    width: 90%;
+  }
+
+  #war_image {
+    height: auto;
+  }
+
+  .form-container,
+  .list-container,
+  .details-container,
+  .edit-container {
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  #character-form,
+  #character-list,
+  #character-details {
+    font-size: 24px;
+  }
 }
