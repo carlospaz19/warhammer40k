@@ -7,6 +7,7 @@ const characterList = document.getElementById("characters");
 const characterSection = document.getElementById("character-list")
 const characterDetails = document.getElementById("character-details"); // Cambiado el ID aquí
 const modal = document.getElementById("myModal");
+const closeModal = document.getElementById("closeModal");
 const modalMessage = document.getElementById("modal-message");
 const deleteAllButton = document.getElementById("delete-all-button");
 const nameInput = document.getElementById("name");
@@ -21,22 +22,6 @@ function initializeCharacters() {
         characters = [];
     }
     displayCharacters();
-}
-
-// Función para crear un nuevo personaje
-function createCharacter(name, chapter, weapon) {
-    hideAlert();
-    const storedCharacters = localStorage.getItem('characters')
-		if (storedCharacters) {
-			characters = JSON.parse(storedCharacters)
-		} else {
-			characters = []
-		}
-    // Agregar el nuevo personaje si el nombre no está repetido
-    characters.push({ name, chapter, weapon });
-    localStorage.setItem('characters', JSON.stringify(characters))
-    displayCharacters();
-    nameInput.value = "";
 }
 
 // Función para mostrar la lista de personajes
@@ -62,12 +47,29 @@ function displayCharacters() {
             <img id="imperium_logo" src="images/imperium_logo.png" alt="Imperium Logo">
             <span>${character.name}</span>
         `
+        li.addEventListener("click", () => nameInput.value = "");
         li.addEventListener("click", () => showDetails(index));
         characterList.appendChild(li);
     });
 
     const sectionList = document.getElementById(`character-list`);
     sectionList.scrollIntoView({ behavior: "smooth" });
+}
+
+// Función para crear un nuevo personaje
+function createCharacter(name, chapter, weapon) {
+    hideAlert();
+    const storedCharacters = localStorage.getItem('characters')
+		if (storedCharacters) {
+			characters = JSON.parse(storedCharacters)
+		} else {
+			characters = []
+		}
+    // Agregar el nuevo personaje si el nombre no está repetido
+    characters.push({ name, chapter, weapon });
+    localStorage.setItem('characters', JSON.stringify(characters))
+    displayCharacters();
+    nameInput.value = "";
 }
 
 // Función para mostrar los detalles de un personaje y activar la edición
@@ -103,24 +105,33 @@ function editCharacter(index) {
     const character = characters[index];
     characterDetails.innerHTML = `
         <div class="edit-container">
-        <h2>Edit ${character.name}</h2>
-        <label for="new-name">Name:</label>
-        <input type="text" id="new-name" value="${character.name}" required>
-        <label for="new-chapter">Chapter:</label>
-        <select id="new-chapter">
-            <option ${character.chapter === "Space Marine" ? "selected" : ""}>Space Marine</option>
-            <option ${character.chapter === "Adeptus Mechanicus" ? "selected" : ""}>Adeptus Mechanicus</option>
-            <option ${character.chapter === "Adeptus Titanicus" ? "selected" : ""}>Adeptus Titanicus</option>
-            <option ${character.chapter === "Adeptus Custodes" ? "selected" : ""}>Adeptus Custodes</option>
-        </select>
-        <label for="new-weapon">Weapon:</label>
-        <select id="new-weapon">
-            <option ${character.weapon === "Bolter" ? "selected" : ""}>Bolter</option>
-            <option ${character.weapon === "Power Sword" ? "selected" : ""}>Power Sword</option>
-            <option ${character.weapon === "Missile Launcher" ? "selected" : ""}>Missile Launcher</option>
-            <option ${character.weapon === "Flamer" ? "selected" : ""}>Flamer</option>
-        </select>
-        <button id="update-button">Repair</button>
+            <h2>Edit ${character.name}</h2>
+            <div class="edit-elements">
+                <div class="form-group">
+                    <label for="new-name">Name:</label>
+                    <input type="text" id="new-name" value="${character.name}" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-chapter">Chapter:</label>
+                    <select id="new-chapter">
+                        <option ${character.chapter === "Space Marine" ? "selected" : ""}>Space Marine</option>
+                        <option ${character.chapter === "Adeptus Mechanicus" ? "selected" : ""}>Adeptus Mechanicus</option>
+                        <option ${character.chapter === "Adeptus Titanicus" ? "selected" : ""}>Adeptus Titanicus</option>
+                        <option ${character.chapter === "Adeptus Custodes" ? "selected" : ""}>Adeptus Custodes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="new-weapon">Weapon:</label>
+                    <select id="new-weapon">
+                        <option ${character.weapon === "Bolter" ? "selected" : ""}>Bolter</option>
+                        <option ${character.weapon === "Power Sword" ? "selected" : ""}>Power Sword</option>
+                        <option ${character.weapon === "Missile Launcher" ? "selected" : ""}>Missile Launcher</option>
+                        <option ${character.weapon === "Flamer" ? "selected" : ""}>Flamer</option>
+                    </select>
+                </div>
+                
+            </div>
+            <button id="update-button">Repair</button>
         </div>
     `;
 
@@ -138,6 +149,17 @@ function deleteCharacter(index) {
     displayCharacters();
     characterDetails.style.display = "none";
     hideAlert();
+    showAlert("In the name of the GOD Emperor, this brother was purged");
+}
+
+function deleteAllCharacters() {
+    characters = []; // Vaciar el arreglo de personajes
+    localStorage.removeItem('characters');
+    displayCharacters(); // Actualizar la visualización de personajes
+    characterDetails.style.display = "none"; // Ocultar los detalles del personaje
+    nameInput.addEventListener("click", ()=> nameInput.value="");
+    hideAlert();
+    showAlert("The planet's fate was sealed in fire and brimstone");
 }
 
 // Función para actualizar los detalles de un personaje
@@ -162,26 +184,22 @@ function updateCharacter(index) {
         newNameInput.value = originalName;
         return;
     }
+    else{
+        character.name = newNameInput.value;
+        character.chapter = newChapter;
+        character.weapon = newWeapon;
 
-    character.name = newNameInput.value;
-    character.chapter = newChapter;
-    character.weapon = newWeapon;
+        // Actualizar los datos en el almacenamiento local
+        characters[index] = character;
+        localStorage.setItem("characters", JSON.stringify(characters));
 
-    // Actualizar los datos en el almacenamiento local
-    characters[index] = character;
-    localStorage.setItem("characters", JSON.stringify(characters));
+        displayCharacters();    
+        showDetails(index);
 
-    displayCharacters();
-    showDetails(index);
-}
-
-function deleteAllCharacters() {
-    characters = []; // Vaciar el arreglo de personajes
-    localStorage.removeItem('characters');
-    displayCharacters(); // Actualizar la visualización de personajes
-    characterDetails.style.display = "none"; // Ocultar los detalles del personaje
-    hideAlert();
-    showAlert("The planet's fate was sealed in fire and brimstone");
+        if(character.name !== originalName){
+            showAlert("In the name of the GOD Emperor, this brother was improved")
+        }
+    }
 }
 
 // Función para mostrar mensajes de alerta
@@ -195,10 +213,6 @@ function showAlert(message) {
     closeButton.addEventListener("click", () => {
         hideAlert();
     });
-
-    setTimeout(() => {
-        hideAlert();
-    }, 5000);
 }
 
 // Función para ocultar mensajes de alerta
@@ -212,6 +226,10 @@ function showListSection(){
 
 function hideListSection(){
     characterSection.classList.add("hidden");
+}
+
+function closeCharacterDetails(){
+    characterDetails.style.display = "none";
 }
 
 // Manejador de envío de formulario
@@ -229,17 +247,28 @@ form.addEventListener("submit", function (event) {
     const existingCharacter = characters.find(character => character.name === name);
     if (existingCharacter) {
         showAlert("Cloning is forbidden science! Try a different brother's name.");
+        nameInput.value = "";
         return; // Detener la creación del personaje
     }
     createCharacter(name, chapter, weapon);
     form.reset();
 });
 
+nameInput.addEventListener("click", closeCharacterDetails);
 nameInput.addEventListener("input", hideAlert);
 deleteAllButton.addEventListener("click", deleteAllCharacters);
 
-// Inicialización: Puedes agregar personajes de ejemplo aquí
-//createCharacter("Titus", "Space Marine", "Power Sword");
-
 // Ocultar la sección character details al cargar la página
 characterDetails.style.display = "none";
+
+// Agrega un evento de clic al fondo oscuro del modal
+modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+  
+// Agrega un evento de clic al botón de cierre
+closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+});

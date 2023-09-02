@@ -39,30 +39,33 @@
 
     <main>
       <section id="character-form">
-        <h2>Create New Adeptus for the God Emperor!</h2>
-        <form id="character-form" novalidate>
-          <div class="form-container">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required />
-
-            <label for="chapter">Chapter:</label>
-            <select id="chapter">
-              <option>Space Marine</option>
-              <option>Adeptus Mechanicus</option>
-              <option>Adeptus Titanicus</option>
-              <option>Adeptus Custodes</option>
-            </select>
-
-            <label for="weapon">Weapon:</label>
-            <select id="weapon">
-              <option>Bolter</option>
-              <option>Power Sword</option>
-              <option>Missile Launcher</option>
-              <option>Flamer</option>
-            </select>
-
-            <button class="button" type="submit">Create</button>
+        <form id="form-container" novalidate>
+          <h2>Create New Adeptus for the God Emperor!</h2>
+          <div class="edit-elements">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" required />
+            </div>
+            <div class="form-group">
+              <label for="chapter">Chapter:</label>
+              <select id="chapter">
+                <option>Space Marine</option>
+                <option>Adeptus Mechanicus</option>
+                <option>Adeptus Titanicus</option>
+                <option>Adeptus Custodes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="weapon">Weapon:</label>
+              <select id="weapon">
+                <option>Bolter</option>
+                <option>Power Sword</option>
+                <option>Missile Launcher</option>
+                <option>Flamer</option>
+              </select>
+            </div>
           </div>
+          <button class="button" type="submit">For the GOD Emperor!</button>
         </form>
       </section>
 
@@ -81,14 +84,14 @@
           <!-- Character details will be displayed here -->
         </div>
       </section>
-    </main>
 
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p id="modal-message"></p>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <p id="modal-message"></p>
+        </div>
       </div>
-    </div>
+    </main>
 
     <!-- <div class="video-container" id="videoContainer">
       <div class="video-wrapper">

@@ -23,12 +23,12 @@ h2 {
 
 header {
   background-color: #121212;
-  padding: 20px;
   text-align: center;
+  margin-top: 70px;
 }
 
 #warhammer_logo {
-  max-width: 30%;
+  max-width: 90%;
 }
 
 #imperium_logo {
@@ -39,7 +39,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
 }
 
 /* Estilos para el contenedor de la tabla */
@@ -76,10 +75,15 @@ header {
 }
 
 .list-container {
-  text-align: center;
   display: flex; /* Utilizar flexbox para disposición horizontal */
-  justify-content: center; /* Centrar los elementos horizontalmente */
   flex-wrap: wrap; /* Asegurarse de que los elementos se envuelvan a la siguiente línea */
+  text-align: center;
+  justify-content: center; /* Centrar los elementos horizontalmente */
+  margin-bottom: 30px;
+}
+
+#characters {
+  justify-content: center;
 }
 
 /* Field Styles*/
@@ -111,18 +115,12 @@ header {
   text-align: center;
 }
 
-.button,
-#update-button,
-#edit-button,
-#delete-button {
+button {
   font-family: "Inquisitor", monospace;
   font-size: 30px;
   letter-spacing: 1px;
-}
-
-#edit-button,
-#delete-button {
   margin-top: 30px;
+  margin-bottom: 50px;
 }
 
 .hidden {
@@ -144,7 +142,7 @@ header {
 
 .modal-content {
   background-color: black;
-  margin: 15% auto;
+  margin: 20% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 50%;
@@ -184,24 +182,38 @@ header {
   padding: 10px;
 }
 
-.form-container,
-.list-container,
+#character-form,
 .details-container,
 .edit-container {
   text-align: center; /* Alinear el contenido a la izquierda */
   margin-top: 20px; /* Espacio arriba del formulario */
-  margin-bottom: 70px;
 }
 
-.form-container label,
-.form-container button,
-.edit-container label,
-.edit-container button {
-  margin-left: 30px;
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-#delete-all-button {
-  margin-bottom: 70px;
+.edit-elements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  display: flex;
+  margin-inline: 20px;
+  margin-bottom: 10px;
+}
+
+label {
+  width: 120px;
+  text-align: left;
+  display: block;
 }
 
 #characters {
@@ -215,19 +227,19 @@ header {
   src: url("fonts/Inquisitor.otf") format("truetype"); /* Ruta relativa a la carpeta de fuentes */
 }
 
-.video-container {
+/* .video-container {
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 1280px;
   max-height: 720px;
-  margin: 0 auto; /* Centrar horizontalmente */
+  margin: 0 auto;
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* Aspect ratio 16:9 (9 / 16 = 0.5625) */
+  padding-bottom: 56.25%;
 }
 
 iframe {
@@ -236,10 +248,92 @@ iframe {
   left: 0;
   width: 100%;
   height: 100%;
-}
+} */
 
 #presentation {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+button {
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 390px) {
+  h1 {
+    font-size: 60px;
+    letter-spacing: 5px;
+  }
+
+  h2 {
+    font-size: 40px;
+    letter-spacing: 3px;
+  }
+
+  #character-form {
+    padding: 10px; /* Añadir un poco de espacio alrededor del formulario */
+  }
+
+  .form-group {
+    margin: 5px 0; /* Reducir el margen vertical entre los elementos */
+  }
+
+  /* Asegurar que los elementos ocupen todo el ancho disponible */
+  input,
+  option,
+  label {
+    width: 100%;
+    font-size: 25px;
+  }
+
+  select option {
+    font-size: 25px; /* Define el tamaño de fuente deseado para las opciones seleccionadas */
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    font-size: smaller;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #imperium_logo {
+    max-width: 30px;
+  }
+
+  .modal-content {
+    margin: 60% auto;
+  }
+
+  #myModal .modal-content p {
+    font-size: 30px; /* Define el tamaño de fuente deseado */
+  }
+
+  #edit-button {
+    margin-bottom: 10px;
+  }
+
+  #motivational {
+    font-size: 30px;
+  }
+
+  tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #author {
+    font-size: 20px;
+  }
+
+  #image_section,
+  #war_image {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+    height: auto; /* Asegura que la altura se ajuste automáticamente */
+  }
 }
