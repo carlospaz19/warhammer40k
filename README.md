@@ -8,6 +8,7 @@
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Author](#author)
+- [Design](#design)
 
 ## Introduction
 
@@ -47,3 +48,8 @@ To get started with this project, follow these steps:
 This project was developed by Carlos Paz Ortega.
 
 Feel free to reach out with any questions or feedback!
+
+## Design
+
+![Webpage_Design](images/design_1.png)
+![Webpage_Design](images/design_2.png)
