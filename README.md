@@ -43,13 +43,13 @@ To get started with this project, follow these steps:
 6. Use the "EXTERMINATUS!" button to delete all characters.
 7. Enjoy creating your Warhammer 40k army!
 
+## Design
+
+![Webpage_Design](images/Design_1.png)
+![Webpage_Design](images/Design_2.png)
+
 ## Author
 
 This project was developed by Carlos Paz Ortega.
 
 Feel free to reach out with any questions or feedback!
-
-## Design
-
-![Webpage_Design](images/Design_1.png)
-![Webpage_Design](images/Design_2.png)
