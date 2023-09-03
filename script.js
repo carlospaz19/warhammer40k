@@ -97,7 +97,7 @@ function showDetails(index) {
     characterDetails.style.display = "block";
 
     // Scroll into view for character details
-    const detailsContainer = document.getElementById(`character-details-${index}`);
+    const detailsContainer = document.getElementById(`character-details`);
     detailsContainer.scrollIntoView({ behavior: "smooth" });
 }
 
@@ -149,6 +149,8 @@ function deleteCharacter(index) {
     characterDetails.style.display = "none";
     hideAlert();
     showAlert("In the name of the GOD Emperor, this brother has been purged");
+    const characterForm = document.getElementById(`character-form`);
+    characterForm.scrollIntoView({ behavior: "smooth" });
 }
 
 function deleteAllCharacters() {
