@@ -7,9 +7,6 @@
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
-- [License](#license)
 - [Author](#author)
 
 ## Introduction
@@ -44,12 +41,6 @@ To get started with this project, follow these steps:
 5. Edit character details or delete characters as needed.
 6. Use the "EXTERMINATUS!" button to delete all characters.
 7. Enjoy creating your Warhammer 40k army!
-
-## Screenshots
-
-![Character Creation](screenshots/character-creation.png)
-
-![Character List](screenshots/character-list.png)
 
 ## Author
 
