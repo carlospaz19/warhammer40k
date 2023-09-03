@@ -50,6 +50,6 @@ To get started with this project, follow these steps:
 
 ## Author
 
-This project was developed by Carlos Paz Ortega and Jaime Felipe Posada.
+This project was developed by Carlos Paz Ortega.
 
 Feel free to reach out with any questions or feedback!
