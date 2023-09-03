@@ -148,7 +148,7 @@ function deleteCharacter(index) {
     displayCharacters();
     characterDetails.style.display = "none";
     hideAlert();
-    showAlert("In the name of the GOD Emperor, this brother has been purged");
+    showAlert("In the name of the GOD-Emperor, this brother has been purged");
     const characterForm = document.getElementById(`character-form`);
     characterForm.scrollIntoView({ behavior: "smooth" });
 }
@@ -207,7 +207,7 @@ function updateCharacter(index) {
 
         // If any of the character data is updated, alert message is shown
         if(character.name !== originalName || character.chapter !== originalChapter || character.weapon !== originalWeapon){
-            showAlert("In the name of the GOD Emperor, this brother has been upgraded")
+            showAlert("In the name of the GOD-Emperor, this brother has been upgraded")
             const sectionDetails = document.getElementById(`character-details`);
             sectionDetails.scrollIntoView({ behavior: "smooth" });
         }
@@ -271,14 +271,14 @@ deleteAllButton.addEventListener("click", deleteAllCharacters);
 // Hide section when the page is reloaded
 characterDetails.style.display = "none";
 
-// Addign event when pressing outside the modal
+// Adding event when pressing outside the modal
 modal.addEventListener("click", (event) => {
     if (event.target === modal) {
         modal.style.display = "none";
     }
 });
   
-// Addign event when pressing 'X' modal
+// Adding event when pressing 'X' modal
 closeModal.addEventListener("click", () => {
     modal.style.display = "none";
 });

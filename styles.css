@@ -248,18 +248,15 @@ label {
   margin-bottom: 50px;
 }
 
-#propaganda img {
-  height: 800px;
-  max-width: auto;
-}
-
 .video-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 1280px;
-  max-height: 720px;
+  height: 900px;
   margin: 0 auto;
+  margin-bottom: 90px;
 }
 
 .video-wrapper {
@@ -268,7 +265,7 @@ label {
   padding-bottom: 56.25%;
 }
 
-iframe {
+video {
   position: absolute;
   top: 0;
   left: 0;
@@ -312,9 +309,13 @@ iframe {
   margin-left: 25px;
 }
 
-@media only screen and (min-width: 391px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .modal-content {
     margin: 35% auto;
+  }
+
+  #welcome_section {
+    margin-bottom: 30px;
   }
 
   #motivational {
@@ -339,9 +340,84 @@ iframe {
     height: auto;
   }
 
-  #propaganda img {
-    height: auto;
+  .video-container {
+    display: flex;
+    flex-direction: column;
+    height: 625px;
+    margin-top: -10px; */
+  }
+}
+
+@media only screen and (min-width: 391px) and (max-width: 767px) {
+  h1 {
+    font-size: 60px;
+    letter-spacing: 5px;
+  }
+
+  h2 {
+    font-size: 40px;
+    letter-spacing: 3px;
+  }
+
+  .modal-content {
+    margin: 60% auto;
+  }
+
+  #myModal .modal-content p {
+    font-size: 30px;
+  }
+
+  #welcome_section {
+    margin-bottom: 30px;
+  }
+
+  #motivational {
+    font-size: 25px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: -5px;
+  }
+
+  #author {
+    font-size: 30px;
+    margin-left: 10%;
+  }
+
+  tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #image_section,
+  #war_image {
     width: 100%;
+    height: auto;
+  }
+
+  .edit-elements {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    font-size: smaller;
+    align-items: center;
+  }
+
+  .video-container {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    margin-top: -60px;
+    margin-bottom: 30px;
+  }
+
+  .footer p,
+  a {
+    font-size: 20px;
   }
 }
 
@@ -356,12 +432,19 @@ iframe {
     letter-spacing: 3px;
   }
 
+  #welcome_section {
+    margin-bottom: 20px;
+  }
+
   #character-form {
     padding: 10px;
   }
 
   .form-group {
     margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    font-size: smaller;
   }
 
   input,
@@ -373,12 +456,6 @@ iframe {
 
   select option {
     font-size: 25px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    font-size: smaller;
   }
 
   ul {
@@ -404,6 +481,7 @@ iframe {
 
   #motivational {
     font-size: 25px;
+    margin-top: -5px;
   }
 
   tr {
@@ -421,13 +499,12 @@ iframe {
     height: auto;
   }
 
-  #propaganda {
-    margin-bottom: 17px;
-  }
-
-  #propaganda img {
-    height: auto;
-    width: 100%;
+  .video-container {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    margin-top: -70px;
+    margin-bottom: 30px;
   }
 
   .footer p,

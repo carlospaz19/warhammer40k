@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="propaganda.css" />
+    <link rel="stylesheet" href="carousel.css" />
     <title>Warhammer 40k - Datasheet Creator</title>
   </head>
   <body>
@@ -46,7 +46,7 @@
     <main>
       <section id="character-form">
         <form id="form-container" novalidate>
-          <h2>Create New Adeptus for the God Emperor!</h2>
+          <h2>Create New Adeptus for the GOD-Emperor!</h2>
           <div class="edit-elements">
             <div class="form-group">
               <label for="name">Name:</label>
@@ -71,7 +71,7 @@
               </select>
             </div>
           </div>
-          <button class="button" type="submit">For the GOD Emperor!</button>
+          <button class="button" type="submit">For the GOD-Emperor!</button>
         </form>
       </section>
 
@@ -100,46 +100,119 @@
     </main>
 
     <section id="propaganda">
-      <tr>
-        <td>
-        <p id="motivational-two">"The Emperor Protects"</p>
+      <div>
+        <p id="motivational-two">"The Emperor Protects!"</p>
         <p id="author-two">- Adeptus Ministorum</p>
-      </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            id="propaganda-1"
-            src="images/propaganda_1.jpg"
-            alt="propaganda-1"
-          />
-        </td>
-        <td>
-          <img
-            id="propaganda-2"
-            src="images/propaganda_2.jpg"
-            alt="propaganda-2"
-          />
-        </td>
-        <td>
-          <img
-            id="propaganda-3"
-            src="images/propaganda_3.jpg"
-            alt="propaganda-2"
-          />
-        </td>
-      </tr>
+      </div>
+      <div>
+        <div class="carousel">
+          <ul class="slides">
+            <input type="radio" name="radio-buttons" id="img-1" checked />
+            <li class="slide-container">
+              <div class="slide-image">
+                <img src="images/propaganda_1.jpg">
+              </div>
+              <div class="carousel-controls">
+                <label for="img-6" class="prev-slide">
+                  <span>&lsaquo;</span>
+                </label>
+                <label for="img-2" class="next-slide">
+                  <span>&rsaquo;</span>
+                </label>
+              </div>
+            </li>
+            <input type="radio" name="radio-buttons" id="img-2" />
+            <li class="slide-container">
+              <div class="slide-image">
+                <img src="images/propaganda_2.jpg">
+              </div>
+              <div class="carousel-controls">
+                <label for="img-1" class="prev-slide">
+                  <span>&lsaquo;</span>
+                </label>
+                <label for="img-3" class="next-slide">
+                  <span>&rsaquo;</span>
+                </label>
+              </div>
+            </li>
+            <input type="radio" name="radio-buttons" id="img-3" />
+            <li class="slide-container">
+              <div class="slide-image">
+                <img src="images/propaganda_3.jpg">
+              </div>
+              <div class="carousel-controls">
+                <label for="img-2" class="prev-slide">
+                  <span>&lsaquo;</span>
+                </label>
+                <label for="img-4" class="next-slide">
+                  <span>&rsaquo;</span>
+                </label>
+              </div>
+            </li>
+            <input type="radio" name="radio-buttons" id="img-4" checked />
+            <li class="slide-container">
+              <div class="slide-image">
+                <img src="images/propaganda_4.jpg">
+              </div>
+              <div class="carousel-controls">
+                <label for="img-3" class="prev-slide">
+                  <span>&lsaquo;</span>
+                </label>
+                <label for="img-5" class="next-slide">
+                  <span>&rsaquo;</span>
+                </label>
+              </div>
+            </li>
+            <input type="radio" name="radio-buttons" id="img-5" checked />
+            <li class="slide-container">
+              <div class="slide-image">
+                <img src="images/propaganda_5.jpg">
+              </div>
+              <div class="carousel-controls">
+                <label for="img-4" class="prev-slide">
+                  <span>&lsaquo;</span>
+                </label>
+                <label for="img-6" class="next-slide">
+                  <span>&rsaquo;</span>
+                </label>
+              </div>
+            </li>
+            <input type="radio" name="radio-buttons" id="img-6" checked />
+            <li class="slide-container">
+              <div class="slide-image">
+                <img src="images/propaganda_6.jpg">
+              </div>
+              <div class="carousel-controls">
+                <label for="img-5" class="prev-slide">
+                  <span>&lsaquo;</span>
+                </label>
+                <label for="img-1" class="next-slide">
+                  <span>&rsaquo;</span>
+                </label>
+              </div>
+            </li>
+            <div class="carousel-dots">
+              <label for="img-1" class="carousel-dot" id="img-dot-1"></label>
+              <label for="img-2" class="carousel-dot" id="img-dot-2"></label>
+              <label for="img-3" class="carousel-dot" id="img-dot-3"></label>
+              <label for="img-4" class="carousel-dot" id="img-dot-4"></label>
+              <label for="img-5" class="carousel-dot" id="img-dot-5"></label>
+              <label for="img-6" class="carousel-dot" id="img-dot-6"></label>
+            </div>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <div class="video-container" id="videoContainer">
+      <div>
+        <p id="motivational-two">"Only in death does duty end."</p>
+        <p id="author-two">- Ultramarines</p>
+      </div>
       <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/y3DsHGDRQ5M?si=-mJTpb2GLb0hst_m"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+        <video controls>
+          <source src="videos/oath.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
 
