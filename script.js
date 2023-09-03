@@ -1,7 +1,7 @@
-// Arreglo para almacenar los personajes
+// Array for characters
 let characters = [];
 
-// Referencias a elementos del DOM
+// References to DOM elements
 const form = document.getElementById("character-form");
 const characterList = document.getElementById("characters");
 const characterSection = document.getElementById("character-list")
@@ -24,7 +24,7 @@ function initializeCharacters() {
     displayCharacters();
 }
 
-// Función para mostrar la lista de personajes
+// Showing character list
 function displayCharacters() {
     const storedCharacters = localStorage.getItem("characters");
     if (storedCharacters) {
@@ -56,7 +56,7 @@ function displayCharacters() {
     sectionList.scrollIntoView({ behavior: "smooth" });
 }
 
-// Función para crear un nuevo personaje
+// Creating a new character
 function createCharacter(name, chapter, weapon) {
     hideAlert();
     const storedCharacters = localStorage.getItem('characters')
@@ -65,14 +65,14 @@ function createCharacter(name, chapter, weapon) {
 		} else {
 			characters = []
 		}
-    // Agregar el nuevo personaje si el nombre no está repetido
+    // Adding a new character if is not repeated
     characters.push({ name, chapter, weapon });
     localStorage.setItem('characters', JSON.stringify(characters))
     displayCharacters();
     nameInput.value = "";
 }
 
-// Función para mostrar los detalles de un personaje y activar la edición
+// Showing character details
 function showDetails(index) {
     const character = characters[index];
     characterDetails.innerHTML = `
@@ -86,21 +86,21 @@ function showDetails(index) {
     </div>
     `;
 
-    // Agregar manejador para el botón de edición
+    // Edit Character when the repair button is pressed
     const editButton = document.getElementById("edit-button");
     editButton.addEventListener("click", () => editCharacter(index));
 
+    // Delete Character when the destroy button is pressed
     const deleteButton = document.getElementById("delete-button");
     deleteButton.addEventListener("click", () => deleteCharacter(index));
 
     characterDetails.style.display = "block";
 
-    // Hacer scroll hacia abajo para mostrar los detalles del personaje
+    // Scroll into view for character details
     const detailsContainer = document.getElementById(`character-details-${index}`);
     detailsContainer.scrollIntoView({ behavior: "smooth" });
 }
 
-// Función para editar los detalles de un personaje
 function editCharacter(index) {
     const character = characters[index];
     characterDetails.innerHTML = `
@@ -129,13 +129,12 @@ function editCharacter(index) {
                         <option ${character.weapon === "Flamer" ? "selected" : ""}>Flamer</option>
                     </select>
                 </div>
-                
             </div>
             <button id="update-button">Repair</button>
         </div>
     `;
 
-    // Agregar manejador para el botón de actualización
+    // Update Character is called when the Repair button is pressed
     const updateButton = document.getElementById("update-button");
     updateButton.addEventListener("click", () => updateCharacter(index));
 }
@@ -143,41 +142,49 @@ function editCharacter(index) {
 function deleteCharacter(index) {
     characters.splice(index, 1);
 
-    // Actualizar los datos en el almacenamiento local
+    // Updating local storage list
     localStorage.setItem("characters", JSON.stringify(characters));
 
     displayCharacters();
     characterDetails.style.display = "none";
     hideAlert();
-    showAlert("In the name of the GOD Emperor, this brother was purged");
+    showAlert("In the name of the GOD Emperor, this brother has been purged");
 }
 
 function deleteAllCharacters() {
-    characters = []; // Vaciar el arreglo de personajes
+    // Empty character array
+    characters = [];
     localStorage.removeItem('characters');
-    displayCharacters(); // Actualizar la visualización de personajes
-    characterDetails.style.display = "none"; // Ocultar los detalles del personaje
+    // Updating characters to display
+    displayCharacters();
+    //Hide character details
+    characterDetails.style.display = "none";
     nameInput.addEventListener("click", ()=> nameInput.value="");
     hideAlert();
     showAlert("The planet's fate was sealed in fire and brimstone");
+    //Scroll into view for the character form
+    const characterForm = document.getElementById(`character-form`);
+    characterForm.scrollIntoView({ behavior: "smooth" });
 }
 
-// Función para actualizar los detalles de un personaje
 function updateCharacter(index) {
     const character = characters[index];
     const originalName = character.name;
+    const originalChapter = character.chapter;
+    const originalWeapon = character.weapon;
 
     const newNameInput = document.getElementById("new-name");
     const newChapter = document.getElementById("new-chapter").value;
     const newWeapon = document.getElementById("new-weapon").value;
 
+    // If the field value is empty, alert message is shown
     if (newNameInput.value === "") {
         showAlert("You heartless heretic!!! Enter a name!!!");
         newNameInput.value = originalName;
         return;
     }
 
-    // Verificar si el nuevo nombre ya está en la lista
+    // Verifying if there is an existing name in the list
     const nameExists = characters.some((char, i) => i !== index && char.name === newNameInput.value);
     if (nameExists) {
         showAlert("Don't steal your brother's soul! Try a different name.");
@@ -189,33 +196,34 @@ function updateCharacter(index) {
         character.chapter = newChapter;
         character.weapon = newWeapon;
 
-        // Actualizar los datos en el almacenamiento local
+        // Updating local storage data
         characters[index] = character;
         localStorage.setItem("characters", JSON.stringify(characters));
 
         displayCharacters();    
         showDetails(index);
 
-        if(character.name !== originalName){
-            showAlert("In the name of the GOD Emperor, this brother was improved")
+        // If any of the character data is updated, alert message is shown
+        if(character.name !== originalName || character.chapter !== originalChapter || character.weapon !== originalWeapon){
+            showAlert("In the name of the GOD Emperor, this brother has been upgraded")
+            const sectionDetails = document.getElementById(`character-details`);
+            sectionDetails.scrollIntoView({ behavior: "smooth" });
         }
     }
 }
 
-// Función para mostrar mensajes de alerta
 function showAlert(message) {
 
     modalMessage.textContent = message;
     modal.style.display = "block";
 
-    // Agregar evento para cerrar el modal al hacer clic en la "x"
+    // Adding event to close modal with 'X'
     const closeButton = document.getElementsByClassName("close")[0];
     closeButton.addEventListener("click", () => {
         hideAlert();
     });
 }
 
-// Función para ocultar mensajes de alerta
 function hideAlert() {
     modal.style.display = "none";
 }
@@ -232,7 +240,7 @@ function closeCharacterDetails(){
     characterDetails.style.display = "none";
 }
 
-// Manejador de envío de formulario
+// Form manager
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     const name = document.getElementById("name").value;
@@ -248,7 +256,7 @@ form.addEventListener("submit", function (event) {
     if (existingCharacter) {
         showAlert("Cloning is forbidden science! Try a different brother's name.");
         nameInput.value = "";
-        return; // Detener la creación del personaje
+        return;
     }
     createCharacter(name, chapter, weapon);
     form.reset();
@@ -258,17 +266,17 @@ nameInput.addEventListener("click", closeCharacterDetails);
 nameInput.addEventListener("input", hideAlert);
 deleteAllButton.addEventListener("click", deleteAllCharacters);
 
-// Ocultar la sección character details al cargar la página
+// Hide section when the page is reloaded
 characterDetails.style.display = "none";
 
-// Agrega un evento de clic al fondo oscuro del modal
+// Addign event when pressing outside the modal
 modal.addEventListener("click", (event) => {
     if (event.target === modal) {
         modal.style.display = "none";
     }
 });
   
-// Agrega un evento de clic al botón de cierre
+// Addign event when pressing 'X' modal
 closeModal.addEventListener("click", () => {
     modal.style.display = "none";
 });
