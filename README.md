@@ -51,5 +51,5 @@ Feel free to reach out with any questions or feedback!
 
 ## Design
 
-![Webpage_Design](images/design_1.png)
-![Webpage_Design](images/design_2.png)
+![Webpage_Design](images/Design_1.png)
+![Webpage_Design](images/Design_2.png)
