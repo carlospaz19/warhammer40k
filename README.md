@@ -7,8 +7,8 @@
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
-- [Author](#author)
 - [Design](#design)
+- [Author](#author)
 
 ## Introduction
 
